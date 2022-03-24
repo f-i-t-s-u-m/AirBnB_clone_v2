@@ -15,3 +15,4 @@ then
 else
   sudo systemctl start nginx
 fi
+
