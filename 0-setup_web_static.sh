@@ -2,8 +2,12 @@
 # init project
 
 sudo apt-get -y install nginx
-mkdir -p /data/web_static/releases/test
-mkdir -p /data/web_static/shared
+mkdir -p /data
+mkdir /data/web_static
+mkdir /data/web_static/releases
+mkdir /data/web_static/shared
+mkdir /data/web_static/releases/test
+touch /data/web_static/releases/test/index.html
 echo 'Hello World!' > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo bash -c 'sudo chown -hR ubuntu:ubuntu data'
