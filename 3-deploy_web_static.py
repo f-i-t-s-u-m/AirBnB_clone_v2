@@ -22,6 +22,7 @@ def do_pack():
         filename, os.path.getsize(filename)))
     return filename
 
+
 def do_deploy(archive_path):
     """ deploy file """
     if not os.path.exists(archive_path):
