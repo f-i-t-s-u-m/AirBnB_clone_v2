@@ -16,3 +16,5 @@ def do_pack():
         .strftime("%G%m%d%H%M%S") + '.tgz'
     print('Packing web_static to {}'.format(filename))
     local('tar -zcvf {} web_static'.format(filename))
+    print('web_static packed: {} -> {}Bytes'\
+            .format(filename, os.path.getsize(filename)))
