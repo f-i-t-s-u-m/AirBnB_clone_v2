@@ -20,6 +20,7 @@ def do_deploy(archive_path):
     run('mv /data/web_static/releases/{0}/web_static/* /data/web_static/releases/{0}'\
             .format(basename.split('.')[0]))
     run('rm -rf /data/web_static/releases/{}/web_static'.format(basename.split('.')[0]))
+    run('rm -rf /data/web_static/current')
     run('ln -sf /data/web_static/releases/{}/ /data/web_static/current'\
         .format(basename.split('.')[0]))
     print('New version deployed!')
