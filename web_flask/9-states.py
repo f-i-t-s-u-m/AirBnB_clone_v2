@@ -1,38 +1,36 @@
 #!/usr/bin/python3
-""" list states python file
-    contains states and teardown function
-"""
+"""Starts a Flask web application"""
 
-from flask import Flask, render_template
 from models import storage
 from models.state import State
-
+from flask import Flask
+from flask import render_template
 app = Flask(__name__)
 
 
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<id>', strict_slashes=False)
-def states(id=None):
-    """ states function
-        check if id is none
+def states_1(id=None):
+    """Returns a rendered html template:
+    if id is given, list the cities of that State
+    else, list all States
     """
-    if id is None:
-        return render_template('9-states.html', states=storage.all(State))
+    states = storage.all('State')
+    if id:
+        key = '{}.{}'.format('State', id)
+        if key in states:
+            states = states[key]
+        else:
+            states = None
     else:
-        try:
-            return render_template('9-states.html',
-                                   state=storage.all()[f'State.{id}'])
-        except KeyError:
-            return render_template('9-states.html', state=None)
+        states = storage.all('State')
+    return render_template('9-states.html', states=states, id=id)
 
 
 @app.teardown_appcontext
-def teardown_appcontext(response_or_exc):
-    """ teardown after done
-        close database connection
-    """
+def teardown(self):
+    """Removes the current SQLAlchemy Session"""
     storage.close()
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
