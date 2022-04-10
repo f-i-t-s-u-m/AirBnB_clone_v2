@@ -13,7 +13,7 @@ def state_all():
 
 
 @app.teardown_appcontext
-def teardown_appcontext(response_or_exc):
+def teardown_appcontext(self):
     storage.close()
 
 
