@@ -29,7 +29,7 @@ def cis(text):
 @app.route('/python/<text>', strict_slashes=False)
 def py(text='is cool'):
     """ route with default value"""
-    return 'python ' + text.replace('_', " ")
+    return 'Python ' + text.replace('_', " ")
 
 
 if __name__ == '__main__':
