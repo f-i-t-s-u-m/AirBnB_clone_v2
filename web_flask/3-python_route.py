@@ -22,7 +22,7 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def cis(text):
     """ c with extra pramas """
-    return 'c ' + text.replace('_', ' ')
+    return 'C ' + text.replace('_', ' ')
 
 
 @app.route('/python', strict_slashes=False)
