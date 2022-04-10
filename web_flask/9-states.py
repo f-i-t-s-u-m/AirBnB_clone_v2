@@ -11,6 +11,7 @@ app = Flask(__name__)
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<id>', strict_slashes=False)
 def states(id=None):
+    """ states function """
     if id is None:
         return render_template('9-states.html', states=storage.all(State))
     else:
@@ -23,6 +24,7 @@ def states(id=None):
 
 @app.teardown_appcontext
 def teardown_appcontext(response_or_exc):
+    """ teardown after done """
     storage.close()
 
 
