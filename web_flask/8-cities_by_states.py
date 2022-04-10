@@ -6,14 +6,10 @@ from models import storage, state
 app = Flask(__name__)
 
 
-@app.route('/states_list', strict_slashes=False)
-def state_all():
-    return render_template('7-states_list.html', states=storage.all(state.State))
-
-
 @app.route('/cities_by_states', strict_slashes=False)
 def state_cities():
-    return render_template('8-cities_by_states.html', states=storage.all(state.State))
+    return render_template('8-cities_by_states.html',
+                           states=storage.all(state.State))
 
 
 @app.teardown_appcontext

@@ -4,6 +4,8 @@
 from flask import Flask, render_template
 from models import storage
 from models.state import State
+
+
 app = Flask(__name__)
 
 
@@ -14,7 +16,7 @@ def state_all():
 
 
 @app.teardown_appcontext
-def teardown_appcontext(self):
+def teardown_appcontext(response_or_exc):
     """ teardown app context """
     storage.close()
 
