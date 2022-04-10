@@ -4,14 +4,14 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        {% if states  %}
+        {% if request.endpoint == 'states'  %}
             <H1>States</H1>
             <UL>
             {% for state in states.values()|sort(attribute='name') %}
             <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
             {% endfor %}
             </UL>
-        {%- elif state %}
+        {%- else %}
             {%- if state %}
             <H1>States: {{ state.name }}</H1>
                 <H3>Cities:</H3>
