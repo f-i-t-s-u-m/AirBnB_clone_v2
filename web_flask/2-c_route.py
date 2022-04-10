@@ -10,19 +10,19 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def index():
     """ index function """
-    return "Hello HBNB! "
+    return "Hello HBNB!"
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """ hbnb route """
-    return "HBNB "
+    return "HBNB"
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def cis(text):
     """ c with extra pramas """
-    return 'c ' + text.replace('_', ' ')
+    return "C " + text.replace("_", " ")
 
 
 if __name__ == '__main__':
