@@ -13,7 +13,7 @@
             </UL>
         {%- else %}
             {%- if state %}
-            <H1>States: {{ state.name }}</H1>
+            <H1>State: {{ state.name }}</H1>
                 <H3>Cities:</H3>
                 <UL>
                     {% for city in state.cities|sort(attribute="name") %}
@@ -22,7 +22,7 @@
                 </UL>
             {% else %}
                 <H1>Not found!</H1>
-            {% endif %}
+            {%- endif -%}
         {% endif %}
 
     </BODY>
