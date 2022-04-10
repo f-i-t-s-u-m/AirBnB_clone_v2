@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
     list all states
     list all  cities by states
 """
@@ -26,7 +26,6 @@ def state_cities(id=None):
     else:
         state = None
     return render_template('9-states.html', state=state)
-
 
 
 @app.teardown_appcontext
