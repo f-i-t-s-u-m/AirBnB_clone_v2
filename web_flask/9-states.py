@@ -15,11 +15,18 @@ app = Flask(__name__)
 
 @app.route('/states', strict_slashes=False)
 def states():
+    """ list all states
+    inside datatbase, using /state
+    route """
     return render_template('9-states.html', states=storage.all(State))
 
 
 @app.route('/states/<id>', strict_slashes=False)
 def state_cities(id=None):
+    """ find state by id
+    and then show all cities
+    related to state"""
+
     key = 'State.' + str(id)
     if key in storage.all(State):
         state = storage.all()[key]
@@ -30,6 +37,7 @@ def state_cities(id=None):
 
 @app.teardown_appcontext
 def close_sql(reponse_or_exc):
+    """ kill sqlalchemy after response """
     storage.close()
 
 
